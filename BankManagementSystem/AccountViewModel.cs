@@ -22,6 +22,7 @@ namespace BankManagementSystem
         }
 
         public DWindowClose NewWindowClose;
+        public DWindowClose EditWindowClose;
 
         private AccountModel _newAccount;
 
@@ -87,6 +88,7 @@ namespace BankManagementSystem
         public AccountViewModel()
         {
             CreateCommand = new RelayCommand(CreateAccount);// object of relay command to get all the things in relay command
+            EditCommand = new RelayCommand(EditAccount);
             this.NewAccount = new AccountModel
             {
                 AccountNumber = 0,
@@ -103,6 +105,17 @@ namespace BankManagementSystem
             };
         }
 
+        public ICommand EditCommand { get; }
+
+        void EditAccount() 
+        {
+            _repo.Update(SelectedAccount);
+            if (EditWindowClose!=null)
+            {
+                EditWindowClose();
+            }
+
+        }
 
         
         public ObservableCollection<AccountModel> Accounts 

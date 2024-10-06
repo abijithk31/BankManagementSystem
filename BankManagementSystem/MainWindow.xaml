@@ -16,7 +16,7 @@
         <TextBlock Grid.Row="0" TextAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.RowSpan="3" FontSize="20" FontWeight="Bold" 
                Text="Account Manager"/>
         <Button Grid.Row="1" Content="Add Account" Width="200" Height="30" HorizontalAlignment="Left" Margin="0,39,0,20" Click="Button_Click"/>
-        <DataGrid ItemsSource="{Binding Accounts}" x:Name="grdAccounts" Grid.Row="2" IsReadOnly="True" AreRowDetailsFrozen="True" AutoGenerateColumns="False" SelectionMode="Single" FontSize="15">
+        <DataGrid ItemsSource="{Binding Accounts}" SelectedItem="{Binding SelectedAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="grdAccounts" Grid.Row="2" IsReadOnly="True" AreRowDetailsFrozen="True" AutoGenerateColumns="False" SelectionMode="Single" FontSize="15">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Account Number" Binding="{Binding AccountNumber}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
@@ -31,6 +31,8 @@
                 <DataGridTextColumn Header="Last Transaction Data" Binding="{Binding LastTransactionDate}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Row="3" Content="Update Account" Width="200" Height="30" Margin="0,15,0,10" HorizontalAlignment="Right" ></Button>
+        <Button Grid.Row="3" Content="Update Account" Width="200" Height="30" Margin="0,15,0,10" HorizontalAlignment="Right" Click="Button_Click_1" ></Button>
+        <Button x:Name="btnDeposit" Grid.Row="3" Content="Deposit" Width="200" Height="30" Margin="0,15,255,10" HorizontalAlignment="Right" Click="btnDeposit_Click"/>
+        <Button x:Name="btnWithdraw" Grid.Row="3" Content="Withdraw" Width="200" Height="30" Margin="0,15,480,10" HorizontalAlignment="Right" Click="btnWithdraw_Click"/>
     </Grid>
 </Window>

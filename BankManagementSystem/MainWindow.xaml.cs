@@ -38,6 +38,33 @@ namespace BankManagementSystem
             FormConfig.accountViewModel.NewWindowClose = newAccountWindow.WindowClose;
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //FormConfig.editAccountWindow.Show();
+            //EditAccountWindow editAccountWindow = (EditAccountWindow)FormConfig.editAccountWindow;
+            //FormConfig.accountViewModel.EditWindowClose = editAccountWindow.WindowClose;
 
+            var viewModel = (AccountViewModel)this.DataContext;
+            if (viewModel.SelectedAccount != null)
+            {
+                var selectedWindow = new EditAccountWindow();
+                selectedWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("please select");
+            }
+
+        }
+
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        {
+            FormConfig.depositWindow.Show();
+        }
+
+        private void btnWithdraw_Click(object sender, RoutedEventArgs e)
+        {
+            FormConfig.withdrawWindow.Show();
+        }
     }
 }

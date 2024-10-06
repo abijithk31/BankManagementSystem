@@ -1,0 +1,84 @@
+﻿<Window x:Class="BankManagementSystem.EditAccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankManagementSystem"
+        mc:Ignorable="d"
+        Title="Edit Account" Height="450" Width="800" Closing="Window_Closing">
+    <Grid MaxWidth="1200" Margin="0 10 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" TextAlignment="center" Text="Edit Account"
+               FontSize="22" FontWeight="Bold"/>
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="0 10 0 0">
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Account Number"/>
+                <TextBox Text="{Binding SelectedAccount.AccountNumber}" Width="300" Margin="100 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Name"/>
+                <TextBox Text="{Binding SelectedAccount.Name}" Width="300" Margin="100 0 0 0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Balance" />
+                <TextBox Text="{Binding SelectedAccount.Balance}" Width="300" Margin="100 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Type"/>
+                <RadioButton Content="current"  Margin="100 0 0 0" />
+                <RadioButton Content="savings"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Email"/>
+                <TextBox Text="{Binding SelectedAccount.Email}" Width="300" Margin="100 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Phone"/>
+                <TextBox Text="{Binding SelectedAccount.PhoneNo}" Width="300" Margin="100 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Address"/>
+                <TextBox Text="{Binding SelectedAccount.Address}" Width="300" Margin="100 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="IsActive"/>
+                <CheckBox Content="" Margin="100 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Interest Percentage"/>
+                <ComboBox Margin="100 0 0 0">
+                    <ComboBoxItem Content="5%"/>
+                    <ComboBoxItem Content="10%"/>
+                    <ComboBoxItem Content="15%"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Transaction Count"/>
+                <TextBox Text="{Binding SelectedAccount.TransactionCount}" Width="300" IsEnabled="True" Margin="100 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Width="150" Text="Last Transaction Date"/>
+                <TextBox Text="{Binding SelectedAccount.LastTransactionDate}" Width="300" IsEnabled="True" Margin="100 0 0 0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Command="{Binding EditCommand}" x:Name="btnUpdate" HorizontalAlignment="right" Grid.Row="2" Width="200" Background="Teal" Content="update" Foreground="White" FontWeight="bold"
+            Height="50"
+            Margin="0 10 20 20" Click="btnUpdate_Click"/>
+
+    </Grid>
+</Window>
